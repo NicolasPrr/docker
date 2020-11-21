@@ -1,0 +1,7 @@
+sudo: required
+services: 
+  -docker
+before_install:
+  -docker build -t nicolasprr/docker -f Dockerfile.dev .
+script:
+  - docker run  nicolasprr/docker npm run test -- --coverage
